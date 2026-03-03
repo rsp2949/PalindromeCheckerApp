@@ -4,14 +4,17 @@ public class Palindrome {
         // Hardcoded string
         String word = "madam";
 
-        // Check palindrome using string reverse logic
+        // Reverse the string manually
         String reversed = "";
         for (int i = word.length() - 1; i >= 0; i--) {
             reversed += word.charAt(i);
         }
 
-        // Print result
-        System.out.println("Word: " + word);
+        // Display original and reversed
+        System.out.println("Original Word: " + word);
+        System.out.println("Reversed Word: " + reversed);
+
+        // Check palindrome
         if (word.equals(reversed)) {
             System.out.println("Result: It is a palindrome.");
         } else {
