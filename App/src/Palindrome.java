@@ -1,37 +1,34 @@
-import java.util.Stack;
+import java.util.*;
 
 public class Palindrome {
 
     public static void main(String[] args) {
 
-        // Hardcoded word
         String word = "madam";
 
-        // Create stack
         Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
 
-        // Push characters into stack
         for (int i = 0; i < word.length(); i++) {
-            stack.push(word.charAt(i));
+            char ch = word.charAt(i);
+            stack.push(ch);
+            queue.add(ch);
         }
 
         boolean isPalindrome = true;
 
-        // Pop and compare characters
-        for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) != stack.pop()) {
+        while (!stack.isEmpty()) {
+            if (stack.pop() != queue.remove()) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        // Print result
         System.out.println("Word: " + word);
 
-        if (isPalindrome) {
+        if (isPalindrome)
             System.out.println("Result: It is a Palindrome.");
-        } else {
+        else
             System.out.println("Result: It is NOT a Palindrome.");
-        }
     }
 }
