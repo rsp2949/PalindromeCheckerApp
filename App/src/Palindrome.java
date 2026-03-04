@@ -1,26 +1,26 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.LinkedList;
 
 public class Palindrome {
 
     public static void main(String[] args) {
 
-        String input = "refer";
+        String input = "level";
 
-        Deque<Character> deque = new ArrayDeque<>();
+        // Create linked list
+        LinkedList<Character> list = new LinkedList<>();
 
-        // Insert characters into deque
+        // Convert string to linked list
         for (char c : input.toCharArray()) {
-            deque.addLast(c);
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // Compare front and rear
-        while (deque.size() > 1) {
+        // Compare first and last until list shrinks
+        while (list.size() > 1) {
 
-            char first = deque.removeFirst();
-            char last = deque.removeLast();
+            char first = list.removeFirst();
+            char last = list.removeLast();
 
             if (first != last) {
                 isPalindrome = false;
@@ -28,7 +28,7 @@ public class Palindrome {
             }
         }
 
-        System.out.println("Input: " + input);
-        System.out.println("Is Palindrome?: " + isPalindrome);
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
